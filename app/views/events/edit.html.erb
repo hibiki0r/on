@@ -1,0 +1,31 @@
+<div>
+    <%= form_for(@event) do |f| %>
+      <h3>
+        編集する
+      </h3>
+      <div class="new_outline">
+      <%= f.text_field :title , placeholder:"タイトル" %>
+      </div>
+
+      <div class="new_outline">
+      <%= f.file_field :image , placeholder:"イメージ画像" %>
+      </div>
+
+      <div class="new_outline">
+      <%= f.text_field :date , placeholder:"日時"%>
+      </div>
+
+      <div class="new_outline">
+      <%= f.text_area :outline , laceholder:"概要" %>
+      </div>
+
+      <div class="new_outline">
+      <%= f.submit "SENT" %>
+      </div>
+
+
+    <% end %>
+
+
+
+  <a href="/">戻る</a>

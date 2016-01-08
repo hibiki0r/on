@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>On</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header>
+
+      <a href="/">
+      <div>
+        <h1 class="title">ON!</h1>
+      </div>
+      </a>
+
+      <div class="navbar">
+        <ul>
+          <a href="/events/new">
+            <li>
+              <%= image_tag "pen.png", class: "event_icon" %>
+            </li>
+          </a>
+          <% if user_signed_in? %>
+          <a href="/users/<%= current_user.id %>">
+            <li>
+              <%= image_tag  "user.png", class: "user_icon" %>
+            </li>
+          </a>
+            <li>
+              <%= link_to  image_tag("key.png",:class => "event_icon"), destroy_user_session_path, method: :delete%>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+              <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+</header>
+
+
+
+
+
+
+<%= yield %>
+
+</body>
+</html>

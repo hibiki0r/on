@@ -1,0 +1,24 @@
+
+<a href="/events/<%= event.id %>">
+<div class="contents">
+
+  <div style="position:relative;">
+    <%= image_tag event.image,:class => "image" %>
+      <div class="event_title" style="position:absolute;top:220px;">
+      <%= event.date %>
+      <br>
+      <%= event.title %>
+      </div>
+  </div>
+</a>
+
+  <div class="outline">
+
+    <%= image_tag  "user.png", class: "user" %>
+    <%= event.user.username %>
+  </div>
+
+</div>
+
+    <%= link_to '削除', "/events/#{event.id}", method: :delete %>
+    <%= link_to '編集', "/events/#{event.id}/edit", method: :get %>

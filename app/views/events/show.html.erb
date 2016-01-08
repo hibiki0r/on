@@ -1,0 +1,43 @@
+
+
+<div class="show_contents">
+
+  <div  style="position:relative;">
+      <%= image_tag @event.image,:class => "show_picture" %>
+      <div class='show_title' style="position:absolute;bottom:10px;">
+      <%= @event.title %>
+      </div>
+  </div>
+
+  <div class="show_date">
+    <%= @event.date %>
+  </div>
+
+  <a href="#" class="show_btn">参加する</a>
+
+</div>
+
+<div class="show_users">
+  <%= image_tag  "user.png", class: "show_user_icon" %>
+  <%= image_tag  "user.png", class: "show_user_icon" %>
+  <%= image_tag  "user.png", class: "show_user_icon" %>
+</div>
+
+<div class="show_outline">
+<%= @event.outline %>
+</div>
+
+
+<% @event.comments.each do |comment| %>
+  <div class="comment_outline">
+    <p><%= comment.comment %><p>
+  </div>
+<% end %>
+</div>
+
+
+<a href="/events/<%= @event.id %>/comments/new">コメントする</a>
+<a href="/">投稿一覧へ戻る</a>
+
+  </body>
+</html>
