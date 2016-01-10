@@ -14,8 +14,11 @@ Rails.application.routes.draw do
   resources :events do
     resources :comments, only: [:new, :create]
   end
+
   root 'events#index'
   get  'users/:id'   =>  'users#show'
+
+  resources :user_events, only: [:index, :create]
 
 end
 

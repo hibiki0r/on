@@ -13,7 +13,10 @@
     <%= @event.date %>
   </div>
 
-  <a href="#" class="show_btn">参加する</a>
+  <%= form_tag(:controller =>"user_events", :action => "create") do %>
+  <%= hidden_field_tag "event_id", @event.id %>
+  <%= submit_tag "参加する", class: "show_btn" %>
+  <% end %>
 
 </div>
 
