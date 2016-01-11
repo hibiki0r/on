@@ -14,8 +14,15 @@
 
   <div class="outline">
 
-    <%= image_tag  "user.png", class: "user" %>
-    <%= event.user.username %>
+
+
+     <div class="icon"><%= image_tag  event.user.userimage, class: "user" %></div>
+     <div class="icon">
+     <%= render partial: "events/paticipants", collection: event.user_events %> 
+     </div>
+   </ul>
+
+
   </div>
 
 </div>

@@ -1,4 +1,4 @@
-
+<div class="container">
 
 <div class="show_contents">
 
@@ -21,9 +21,10 @@
 </div>
 
 <div class="show_users">
-  <%= image_tag  "user.png", class: "show_user_icon" %>
-  <%= image_tag  "user.png", class: "show_user_icon" %>
-  <%= image_tag  "user.png", class: "show_user_icon" %>
+  <%= image_tag  @event.user.userimage, class: "show_user_icon" %>
+  <% @paticipants.each do |paticipant| %>
+  <%= image_tag  paticipant.userimage, class: "show_user_icon" %>
+  <% end %>
 </div>
 
 <div class="show_outline">
@@ -36,8 +37,8 @@
     <p><%= comment.comment %><p>
   </div>
 <% end %>
-</div>
 
+</div>
 
 <a href="/events/<%= @event.id %>/comments/new">コメントする</a>
 <a href="/">投稿一覧へ戻る</a>

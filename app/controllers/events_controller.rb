@@ -4,6 +4,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.order("created_at DESC")
+    # @event = Event.find(params[:id])
+    # @paticipants = @event.users
   end
 
   def new
@@ -16,6 +18,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @paticipants = @event.users
   end
 
   def destroy

@@ -1,0 +1,19 @@
+
+    <%= form_for current_user do |f| %>
+      <h2>登録情報</h2>
+
+      <div>
+        <%= f.text_field :username, placeholder: "登録者名"%>
+      </div>
+
+      <h2>プロフィール画像</h2>
+
+      <div class="field">
+        <%= f.file_field :userimage %>
+      </div>
+
+      <div>
+        <%= f.submit "送信", class: "btn btn-primary withripple" %>
+      </div>
+
+    <% end %>

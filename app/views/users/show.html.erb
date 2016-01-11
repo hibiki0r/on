@@ -1,4 +1,13 @@
 <div class="contents row">
-    <p><%= @username %>さんの投稿一覧</p>
-    <%= render partial: "events/event", collection: @events %>
-  </div>
+    <%= image_tag @user.userimage, class: "user_icon" %>
+
+    <% if current_user.id == @user.id %>
+      <div>
+        <%= link_to "プロフィール編集", edit_user_path(current_user)%>
+      </div>
+    <% end %>
+</div>
+
+<div class="contents row">
+  <%= render partial: "events/event", collection: @events %>
+</div>

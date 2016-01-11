@@ -25,9 +25,16 @@
           </a>
           <% if user_signed_in? %>
           <a href="/users/<%= current_user.id %>">
+
+          <% if current_user.userimage? %>
             <li>
-              <%= image_tag  "user.png", class: "user_icon" %>
+              <%= image_tag  current_user.userimage, class: "user_icon" %>
             </li>
+          <% else %>
+            <li>
+              <%= image_tag "user.png", class: "user_icon" %>
+            </li>
+          <% end %>
           </a>
             <li>
               <%= link_to  image_tag("key.png",:class => "event_icon"), destroy_user_session_path, method: :delete%>
