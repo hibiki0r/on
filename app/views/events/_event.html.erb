@@ -1,31 +1,22 @@
-
-<a href="/events/<%= event.id %>">
-<div class="contents">
-
-  <div style="position:relative;">
-    <%= image_tag event.image,:class => "image" %>
-      <div class="event_title" style="position:absolute;top:220px;">
+<a class="event_contents" href="/events/<%= event.id %>">
+<div clss="event_image" style="position:relative;">
+  <%= image_tag event.image,:class => "image" %>
+    <div class="event_title" style="position:absolute;top:150px;">
       <%= event.date %>
-      <br>
+    <br>
       <%= event.title %>
-      </div>
+    </div>
+</div>
+
+<div class="event_info">
+  <div class="event_icon clearfix">
+    <%= image_tag  event.user.userimage, class: "event_user" %>
+    <%= render partial: "events/paticipants", collection: event.user_events %>
   </div>
+</div>
 </a>
 
-  <div class="outline">
 
-
-
-     <div class="icon"><%= image_tag  event.user.userimage, class: "user" %></div>
-     <div class="icon">
-     <%= render partial: "events/paticipants", collection: event.user_events %> 
-     </div>
-   </ul>
-
-
-  </div>
-
-</div>
 
     <%= link_to '削除', "/events/#{event.id}", method: :delete %>
     <%= link_to '編集', "/events/#{event.id}/edit", method: :get %>

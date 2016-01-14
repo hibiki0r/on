@@ -13,10 +13,27 @@
     <%= @event.date %>
   </div>
 
+<% if @event.user_events.pluck(:user_id).include?(current_user.id) || @event.user_id == current_user.id %>
+
+<script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+<div id="SkypeButton_Call_sample_1" class="skype_btn">
+ <script type="text/javascript">
+ Skype.ui({
+ "name": "chat",
+ "element": "SkypeButton_Call_sample_1",
+ "participants": ["sample"],
+ "imageSize": 32
+ });
+ </script>
+</div>
+
+
+<% else %>
   <%= form_tag(:controller =>"user_events", :action => "create") do %>
   <%= hidden_field_tag "event_id", @event.id %>
   <%= submit_tag "参加する", class: "show_btn" %>
   <% end %>
+<% end %>
 
 </div>
 
@@ -40,8 +57,7 @@
 
 </div>
 
-<a href="/events/<%= @event.id %>/comments/new">コメントする</a>
-<a href="/">投稿一覧へ戻る</a>
+
 
   </body>
 </html>

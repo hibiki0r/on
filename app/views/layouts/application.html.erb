@@ -8,47 +8,42 @@
 </head>
 <body>
 
-<header>
+  <header>
 
-      <a href="/">
-      <div>
-        <h1 class="title">ON!</h1>
+    <a href="/">
+      <div class="title">
+        <%= image_tag "font.png", class: "title_logo" %>
       </div>
-      </a>
+    </a>
 
-      <div class="navbar">
-        <ul>
+    <div class="navbar">
+      <ul>
+        <% if user_signed_in? %>
           <a href="/events/new">
             <li>
-              <%= image_tag "pen.png", class: "event_icon" %>
+              <%= image_tag "pen.png", class: "nav_event_icon" %>
             </li>
           </a>
-          <% if user_signed_in? %>
+
           <a href="/users/<%= current_user.id %>">
-
-          <% if current_user.userimage? %>
             <li>
-              <%= image_tag  current_user.userimage, class: "user_icon" %>
+              <%= image_tag "user.png", class: "nav_user_icon" %>
             </li>
-          <% else %>
-            <li>
-              <%= image_tag "user.png", class: "user_icon" %>
-            </li>
-          <% end %>
           </a>
-            <li>
-              <%= link_to  image_tag("key.png",:class => "event_icon"), destroy_user_session_path, method: :delete%>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-              <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
 
-</header>
+          <li>
+            <%= link_to  image_tag("logout.png",:class => "nav_event_icon"), destroy_user_session_path, method: :delete%>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to  image_tag("login.png",:class => "nav_event_icon"), new_user_session_path %>
+            <%= link_to  image_tag("new.png",:class => "nav_event_icon"), new_user_registration_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </header>
 
 
 

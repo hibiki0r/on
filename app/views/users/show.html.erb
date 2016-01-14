@@ -1,13 +1,13 @@
-<div class="contents row">
-    <%= image_tag @user.userimage, class: "user_icon" %>
 
-    <% if current_user.id == @user.id %>
-      <div>
-        <%= link_to "プロフィール編集", edit_user_path(current_user)%>
-      </div>
-    <% end %>
-</div>
+  <div class="mypage_contents">
+    <%= image_tag @user.userimage, class: "mypage_icon" %>
+    <%= @user.username %>
+  </div>
 
-<div class="contents row">
-  <%= render partial: "events/event", collection: @events %>
-</div>
+  <div class="">
+    <%= render partial: "events/event", collection: @events %>
+  </div>
+
+  <% if current_user.id == @user.id %>
+  <%= link_to "プロフィール編集", edit_user_path(current_user)%>
+  <% end %>

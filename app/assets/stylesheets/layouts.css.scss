@@ -1,3 +1,7 @@
+html, body, ul, li, h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
 body {
  background-color: #F3F3F3;
 }
@@ -10,11 +14,20 @@ header {
 }
 
 .title {
-  font-size: 72px;
-  font-family: sans-serif;
-  color: white;
-  float: left;
-  margin:20px;
+ float:left;
+ width:30%;
+ height:auto;
+}
+
+
+.title_logo {
+ width:50%;
+ height:auto;
+}
+
+
+.navbar{
+  float:right
 }
 
 
@@ -29,13 +42,13 @@ ul li {
   padding-right: 10px;
 }
 
-.event_icon {
+.nav_event_icon {
   margin-top:20px;
   width: 90px;
   height: 90px;
 }
 
-.user_icon {
+.nav_user_icon {
   margin-top:20px;
   width: 90px;
   height: 90px;
