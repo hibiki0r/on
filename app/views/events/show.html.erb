@@ -1,63 +1,54 @@
-<div class="container">
+<div class="login">
+  <div id="show_wrapper">
+    <div id="show_content">
 
-<div class="show_contents">
-
-  <div  style="position:relative;">
-      <%= image_tag @event.image,:class => "show_picture" %>
-      <div class='show_title' style="position:absolute;bottom:10px;">
-      <%= @event.title %>
+      <div class="show_image" style="background-image: url(<%= @event.image.url %>); background-size: cover;">
+        <div class="show_title">
+          <%= @event.title %>
+        </div>
       </div>
-  </div>
 
-  <div class="show_date">
-    <%= @event.date %>
-  </div>
+      <div class="show_info">
+        <%= @event.date %>
 
-<% if @event.user_events.pluck(:user_id).include?(current_user.id) || @event.user_id == current_user.id %>
+        <% if @event.user_events.pluck(:user_id).include?(current_user.id) || @event.user_id == current_user.id %>
 
-<script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
-<div id="SkypeButton_Call_sample_1" class="skype_btn">
- <script type="text/javascript">
- Skype.ui({
- "name": "chat",
- "element": "SkypeButton_Call_sample_1",
- "participants": ["sample"],
- "imageSize": 32
- });
- </script>
-</div>
+        <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+        <div id="SkypeButton_Call_sample_1" >
+         <script type="text/javascript">
+         Skype.ui({
+         "name": "chat",
+         "element": "SkypeButton_Call_sample_1",
+         "participants": ["sample"],
+         "imageSize": 32
+         });
+         </script>
+        </div>
 
+        <% else %>
+          <%= form_tag(:controller =>"user_events", :action => "create") do %>
+          <%= hidden_field_tag "event_id", @event.id %>
+          <%= submit_tag "参加する", class: "show_btn" %>
+          <% end %>
+        <% end %>
 
-<% else %>
-  <%= form_tag(:controller =>"user_events", :action => "create") do %>
-  <%= hidden_field_tag "event_id", @event.id %>
-  <%= submit_tag "参加する", class: "show_btn" %>
-  <% end %>
-<% end %>
+      </div>
 
-</div>
+      <div class="show_paticipants">
+        <%= image_tag  @event.user.userimage, class: "show_user_icon" %>
+        <% @paticipants.each do |paticipant| %>
+        <%= image_tag  paticipant.userimage, class: "show_user_icon" %>
+        <% end %>
+      </div>
 
-<div class="show_users">
-  <%= image_tag  @event.user.userimage, class: "show_user_icon" %>
-  <% @paticipants.each do |paticipant| %>
-  <%= image_tag  paticipant.userimage, class: "show_user_icon" %>
-  <% end %>
-</div>
+      <div class="show_outline1">
+        <%= @event.outline %>
+      </div>
 
-<div class="show_outline">
-<%= @event.outline %>
-</div>
-
-
-<% @event.comments.each do |comment| %>
-  <div class="comment_outline">
-    <p><%= comment.comment %><p>
-  </div>
-<% end %>
-
-</div>
+      </div>
 
 
 
-  </body>
-</html>
+
+
+

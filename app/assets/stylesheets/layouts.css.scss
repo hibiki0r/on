@@ -4,24 +4,35 @@ html, body, ul, li, h1, h2, h3, h4, h5 {
 
 body {
  background-color: #F3F3F3;
+
 }
 
 header {
   background-color: #05B0F0;
-  height: 150px;
+  height: 80px;
+  margin-bottom: 15px;
   width:100%;
   border-bottom: 3px solid #CDCDCD;
+  position: fixed;
+  top:0;
+  z-index: 999;
 }
+
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
 
 .title {
  float:left;
- width:30%;
- height:auto;
 }
 
 
 .title_logo {
- width:50%;
+ margin: 5px 0px 0px 10px;
+ width:100px;
  height:auto;
 }
 
@@ -43,13 +54,24 @@ ul li {
 }
 
 .nav_event_icon {
-  margin-top:20px;
-  width: 90px;
-  height: 90px;
+  width: 50px;
+  height: auto;
 }
 
 .nav_user_icon {
-  margin-top:20px;
-  width: 90px;
-  height: 90px;
+  margin-top: 3px;
+  margin-right: 6px;
+  width: 50px;
+  height: auto;
 }
+
+.nav_logout_icon{
+  width: 50px;
+  height: auto;
+  margin-top:3px;
+}
+
+.login{
+  margin-top:80px;
+}
+

@@ -1,21 +1,59 @@
-.mypage_contents{
-  height: 200px;
-  width:100%;;
-  border: 2px solid #CDCDCD;
-  background-color: white;
-  margin: 10px 0px 10px 0px;
+#mypage_wrapper {
+    position: relative;
+    width: 100%;
 }
 
+#mypage_wrapper:before {
+    content:"";
+    display: block;
+    padding-top: 80%;
+}
+
+#mypage_content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-top: 2px solid #CDCDCD;
+    margin-top:30px;
+}
+
+.mypage_userimage {
+  width: 100%;
+  height: 50%;
+  position: relative;
+  background-color: white;
+  border-bottom: 2px solid #CDCDCD;
+}
+
+
+.mypage_event {
+  width: 100%;
+  height: 50%;
+  position: relative;
+  // background-color: black;
+  border-bottom: 2px solid #CDCDCD;
+}
+
+
 .mypage_icon {
-  height: 150px;
-  width: 150px;
-  border-radius: 150px;
-  webkit-border-radius: 150px;
-  moz-border-radius: 150px;
+  margin:10px 0px 0px 20px;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  webkit-border-radius: 50%;
+  moz-border-radius: 50%;
   float:left;
 }
 
 .mypage_username{
+  margin: 50px 0px 0px 50px;
   float:left;
-  font-size:200px;
+  font-size:80px;
+}
+
+.mypage_menu{
+  margin-top: 150px;
+  margin-left: 50px;
 }

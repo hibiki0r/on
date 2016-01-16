@@ -1,13 +1,25 @@
-
-  <div class="mypage_contents">
-    <%= image_tag @user.userimage, class: "mypage_icon" %>
-    <%= @user.username %>
-  </div>
-
-  <div class="">
-    <%= render partial: "events/event", collection: @events %>
-  </div>
-
-  <% if current_user.id == @user.id %>
-  <%= link_to "プロフィール編集", edit_user_path(current_user)%>
+<div class="login">
+<div id="mypage_wrapper">
+  <div id="mypage_content">
+    <div class="mypage_userimage">
+      <%= image_tag @user.userimage, class: "mypage_icon" %>
+      <div class="mypage_username">
+        <%=@user.username%>
+      </div>
+      <% if current_user.id == @user.id %>
+  <%= link_to image_tag("edit.png",:class => "mypage_menu"), edit_user_path(current_user)%>
   <% end %>
+
+
+
+    </div>
+
+
+    <div class="mypage_event">
+    <%= render partial: "events/event", collection: @events %>
+    </div>
+  </div>
+</div>
+
+  
+  </div>
